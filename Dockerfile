@@ -84,6 +84,7 @@ RUN mkdir -p \
     storage/framework/cache/data \
     storage/logs \
     bootstrap/cache \
+    database \
     /var/log/supervisor \
     /var/run/php-fpm \
     /var/lib/nginx/tmp/client_body \
@@ -91,8 +92,9 @@ RUN mkdir -p \
     /var/lib/nginx/tmp/fastcgi \
     /var/lib/nginx/tmp/uwsgi \
     /var/lib/nginx/tmp/scgi \
-    && chown -R www-data:www-data storage bootstrap/cache /var/lib/nginx /var/run /var/log/supervisor \
-    && chmod -R 775 storage bootstrap/cache /var/lib/nginx /var/run /var/log/supervisor
+    && touch database/database.sqlite \
+    && chown -R www-data:www-data storage bootstrap/cache database /var/lib/nginx /var/run /var/log/supervisor \
+    && chmod -R 775 storage bootstrap/cache database /var/lib/nginx /var/run /var/log/supervisor
 
 EXPOSE 80
 
