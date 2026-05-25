@@ -76,7 +76,7 @@ class DatabaseSeeder extends Seeder
                 'first_name' => fake()->firstName(),
                 'last_name' => fake()->lastName(),
                 'email' => $customer->email,
-                'phone' => fake()->phoneNumber(),
+                'phone' => fake()->regexify('0[789]0-[0-9]{4}-[0-9]{4}'),
                 'address' => fake()->streetAddress(),
                 'city' => fake()->city(),
                 'state' => fake()->stateAbbr(),

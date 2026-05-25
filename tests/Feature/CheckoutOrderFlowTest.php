@@ -48,7 +48,7 @@ class CheckoutOrderFlowTest extends TestCase
             'first_name' => 'Ada',
             'last_name' => 'Lovelace',
             'email' => 'ada@example.com',
-            'phone' => '08000000000',
+            'phone' => '080-1234-5678',
             'address' => '123 Main Street',
             'city' => 'Lagos',
             'state' => 'LA',

@@ -34,7 +34,7 @@ class AdminAccessTest extends TestCase
             'first_name' => 'Admin',
             'last_name' => 'User',
             'email' => 'admin@example.com',
-            'phone' => '08000000000',
+            'phone' => '080-1234-5678',
             'address' => '1 Admin Way',
             'city' => 'Ikeja',
             'state' => 'LA',
