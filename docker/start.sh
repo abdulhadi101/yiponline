@@ -19,7 +19,7 @@ php artisan route:cache || true
 php artisan view:cache || true
 
 if [ "$RUN_MIGRATIONS" = "true" ]; then
-  php artisan migrate --seed --force
+  php artisan migrate --seed --force || echo "Migration failed, continuing..."
 fi
 
 exec supervisord -c /etc/supervisor/conf.d/supervisord.conf
