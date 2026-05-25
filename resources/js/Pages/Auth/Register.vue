@@ -63,6 +63,8 @@
 <script setup>
 import { Link, useForm } from '@inertiajs/vue3';
 
+const route = window.route;
+
 const form = useForm({
     name: '',
     email: '',

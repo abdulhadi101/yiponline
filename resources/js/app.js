@@ -9,9 +9,9 @@ createInertiaApp({
         return pages[`./Pages/${name}.vue`];
     },
     setup({ el, App, props, plugin }) {
-        createApp({ render: () => h(App, props) })
-            .use(plugin)
-            .mount(el);
+        const app = createApp({ render: () => h(App, props) });
+        app.config.globalProperties.route = window.route;
+        app.use(plugin).mount(el);
     },
     progress: {
         color: '#4F46E5',
