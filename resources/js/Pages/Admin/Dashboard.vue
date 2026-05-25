@@ -66,7 +66,7 @@
             <div class="bg-white rounded-lg shadow-md p-6">
                 <h2 class="text-xl font-semibold mb-4">Quick Actions</h2>
                 <div class="flex space-x-4">
-                    <Link href="/admin/orders" class="px-4 py-2 bg-indigo-600 text-white rounded-md hover:bg-indigo-700">
+                    <Link href="/management/orders" class="px-4 py-2 bg-indigo-600 text-white rounded-md hover:bg-indigo-700">
                         View All Orders
                     </Link>
                 </div>

@@ -3,7 +3,7 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center mb-8">
                 <h1 class="text-3xl font-bold text-gray-900">Order Management</h1>
-                <Link href="/admin" class="text-indigo-600 hover:text-indigo-800">&larr; Back to Dashboard</Link>
+                <Link href="/management" class="text-indigo-600 hover:text-indigo-800">&larr; Back to Dashboard</Link>
             </div>
 
             <!-- Filters -->
@@ -149,11 +149,11 @@ const props = defineProps({
 const statusFilter = ref(props.filters?.status || '');
 
 function filterOrders() {
-    router.get('/admin/orders', { status: statusFilter.value });
+    router.get('/management/orders', { status: statusFilter.value });
 }
 
 function updateStatus(orderId, status) {
-    router.patch(`/admin/orders/${orderId}`, { status });
+    router.patch(`/management/orders/${orderId}`, { status });
 }
 
 const selectedOrder = ref(null);

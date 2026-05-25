@@ -11,22 +11,22 @@ class AdminAccessTest extends TestCase
 {
     use RefreshDatabase;
 
-    public function test_guest_cannot_access_admin_dashboard(): void
+    public function test_guest_cannot_access_management_dashboard(): void
     {
-        $this->get('/admin')
+        $this->get('/management')
             ->assertRedirect('/login');
     }
 
-    public function test_non_admin_user_gets_403_on_admin_pages(): void
+    public function test_non_admin_user_gets_403_on_management_pages(): void
     {
         $user = User::factory()->create(['is_admin' => false]);
 
         $this->actingAs($user)
-            ->get('/admin')
+            ->get('/management')
             ->assertForbidden();
     }
 
-    public function test_admin_user_can_access_admin_pages_and_update_order_status(): void
+    public function test_admin_user_can_access_management_pages_and_update_order_status(): void
     {
         $admin = User::factory()->create(['is_admin' => true]);
         $order = Order::create([
@@ -44,15 +44,15 @@ class AdminAccessTest extends TestCase
         ]);
 
         $this->actingAs($admin)
-            ->get('/admin')
+            ->get('/management')
             ->assertOk();
 
         $this->actingAs($admin)
-            ->get('/admin/orders')
+            ->get('/management/orders')
             ->assertOk();
 
         $this->actingAs($admin)
-            ->patch('/admin/orders/'.$order->id, ['status' => 'completed'])
+            ->patch('/management/orders/'.$order->id, ['status' => 'completed'])
             ->assertRedirect();
 
         $this->assertDatabaseHas('orders', [
