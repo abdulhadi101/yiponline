@@ -10,12 +10,12 @@
                     <div class="space-y-3 mb-6">
                         <div v-for="(item, productId) in cart" :key="productId" class="flex justify-between">
                             <span>{{ item.name }} x {{ item.quantity }}</span>
-                            <span>${{ (item.price * item.quantity).toFixed(2) }}</span>
+                            <span>₦{{ Number(item.price * item.quantity).toLocaleString() }}</span>
                         </div>
                     </div>
                     <div class="border-t pt-4 flex justify-between items-center">
                         <span class="text-lg font-semibold">Total:</span>
-                        <span class="text-2xl font-bold text-indigo-600">${{ total }}</span>
+                        <span class="text-2xl font-bold text-indigo-600">₦{{ Number(total).toLocaleString() }}</span>
                     </div>
                 </div>
 

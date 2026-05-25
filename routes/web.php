@@ -28,8 +28,8 @@ Route::get('/orders/{order}/confirmation', [OrderController::class, 'confirmatio
 Route::get('/orders', [OrderController::class, 'index'])->name('orders.index')->middleware('auth');
 Route::get('/orders/{order}', [OrderController::class, 'show'])->name('orders.show')->middleware('auth');
 
-// Admin routes
-Route::prefix('admin')->name('admin.')->middleware(['auth', 'admin'])->group(function () {
+// Custom management routes (separate from Filament /admin panel)
+Route::prefix('management')->name('management.')->middleware(['auth', 'admin'])->group(function () {
     Route::get('/', [AdminController::class, 'dashboard'])->name('dashboard');
     Route::get('/orders', [AdminController::class, 'orders'])->name('orders');
     Route::patch('/orders/{order}', [AdminController::class, 'updateOrderStatus'])->name('orders.update');

@@ -13,7 +13,7 @@
                     class="bg-white rounded-lg shadow-md p-6 flex justify-between items-center">
                     <div>
                         <p class="text-sm text-gray-500">Order #{{ order.id }}</p>
-                        <p class="text-lg font-semibold">${{ order.total }}</p>
+                        <p class="text-lg font-semibold">₦{{ Number(order.total).toLocaleString() }}</p>
                         <p class="text-sm text-gray-500">{{ new Date(order.created_at).toLocaleDateString() }}</p>
                     </div>
                     <div class="text-right">
@@ -37,14 +37,22 @@
                 <!-- Pagination -->
                 <div v-if="orders.last_page > 1" class="mt-8 flex justify-center">
                     <nav class="flex space-x-2">
-                        <Link v-for="(link, index) in orders.links" :key="index"
-                            :href="link.url"
-                            :class="[
-                                'px-4 py-2 rounded-md',
-                                link.active ? 'bg-indigo-600 text-white' : 'bg-white text-gray-700 hover:bg-gray-100',
-                                !link.url ? 'opacity-50 cursor-not-allowed' : ''
-                            ]"
-                            v-html="link.label" />
+                        <template v-for="(link, index) in orders.links" :key="index">
+                            <Link
+                                v-if="link.url"
+                                :href="link.url"
+                                :class="[
+                                    'px-4 py-2 rounded-md',
+                                    link.active ? 'bg-indigo-600 text-white' : 'bg-white text-gray-700 hover:bg-gray-100'
+                                ]"
+                                v-html="link.label"
+                            />
+                            <span
+                                v-else
+                                class="px-4 py-2 rounded-md bg-white text-gray-400 opacity-50 cursor-not-allowed"
+                                v-html="link.label"
+                            />
+                        </template>
                     </nav>
                 </div>
             </div>

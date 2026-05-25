@@ -15,7 +15,7 @@ class StorefrontFlowTest extends TestCase
         $product = Product::create([
             'name' => 'QA Product',
             'description' => 'QA Description',
-            'price' => 49.99,
+            'price' => 49990.00,
             'stock' => 10,
             'image' => null,
             'is_active' => true,
@@ -33,7 +33,7 @@ class StorefrontFlowTest extends TestCase
         $product = Product::create([
             'name' => 'Cart Product',
             'description' => 'Cart test',
-            'price' => 25.00,
+            'price' => 25000.00,
             'stock' => 8,
             'image' => null,
             'is_active' => true,

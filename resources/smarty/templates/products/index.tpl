@@ -22,7 +22,7 @@
                     <div class="card-content">
                         <h3>{$product.name|escape}</h3>
                         <p class="meta">{$product.description|truncate:92|escape}</p>
-                        <div class="price">${$product.price|string_format:'%.2f'}</div>
+                        <div class="price">₦{$product.price|string_format:'%.2f'}</div>
                         <p class="meta">Stock: {$product.stock}</p>
                     </div>
                 </article>

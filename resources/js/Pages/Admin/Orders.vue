@@ -43,7 +43,7 @@
                             <td class="px-6 py-4 whitespace-nowrap font-medium">#{{ order.id }}</td>
                             <td class="px-6 py-4 whitespace-nowrap">{{ order.first_name }} {{ order.last_name }}</td>
                             <td class="px-6 py-4 whitespace-nowrap">{{ order.email }}</td>
-                            <td class="px-6 py-4 whitespace-nowrap">${{ Number(order.total).toFixed(2) }}</td>
+                            <td class="px-6 py-4 whitespace-nowrap">₦{{ Number(order.total).toLocaleString() }}</td>
                             <td class="px-6 py-4 whitespace-nowrap">
                                 <select 
                                     :value="order.status"
@@ -77,17 +77,22 @@
             <!-- Pagination -->
             <div v-if="orders.last_page > 1" class="mt-8 flex justify-center">
                 <nav class="flex space-x-2">
-                    <Link 
-                        v-for="(link, index) in orders.links" 
-                        :key="index"
-                        :href="link.url"
-                        :class="[
-                            'px-4 py-2 rounded-md',
-                            link.active ? 'bg-indigo-600 text-white' : 'bg-white text-gray-700 hover:bg-gray-100',
-                            !link.url ? 'opacity-50 cursor-not-allowed' : ''
-                        ]"
-                        v-html="link.label"
-                    />
+                    <template v-for="(link, index) in orders.links" :key="index">
+                        <Link
+                            v-if="link.url"
+                            :href="link.url"
+                            :class="[
+                                'px-4 py-2 rounded-md',
+                                link.active ? 'bg-indigo-600 text-white' : 'bg-white text-gray-700 hover:bg-gray-100'
+                            ]"
+                            v-html="link.label"
+                        />
+                        <span
+                            v-else
+                            class="px-4 py-2 rounded-md bg-white text-gray-400 opacity-50 cursor-not-allowed"
+                            v-html="link.label"
+                        />
+                    </template>
                 </nav>
             </div>
         </div>
@@ -113,13 +118,13 @@
                         <h3 class="font-semibold mb-2">Order Info</h3>
                         <p class="text-sm text-gray-600">Date: {{ new Date(selectedOrder.created_at).toLocaleDateString() }}</p>
                         <p class="text-sm text-gray-600">Status: <span class="capitalize font-medium">{{ selectedOrder.status }}</span></p>
-                        <p class="text-lg font-bold text-indigo-600 mt-1">Total: ${{ Number(selectedOrder.total).toFixed(2) }}</p>
+                        <p class="text-lg font-bold text-indigo-600 mt-1">Total: ₦{{ Number(selectedOrder.total).toLocaleString() }}</p>
                     </div>
                     <div v-if="selectedOrder.items && selectedOrder.items.length">
                         <h3 class="font-semibold mb-2">Items</h3>
                         <div v-for="item in selectedOrder.items" :key="item.id" class="flex justify-between text-sm text-gray-600 py-1">
                             <span>{{ item.product_name }} x {{ item.quantity }}</span>
-                            <span>${{ Number(item.price * item.quantity).toFixed(2) }}</span>
+                            <span>₦{{ Number(item.price * item.quantity).toLocaleString() }}</span>
                         </div>
                     </div>
                 </div>

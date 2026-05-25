@@ -15,7 +15,7 @@ class SmartyDemoTest extends TestCase
         Product::create([
             'name' => 'Smarty Phone',
             'description' => 'Phone rendered by Smarty',
-            'price' => 300.00,
+            'price' => 300000.00,
             'stock' => 5,
             'image' => null,
             'is_active' => true,
@@ -32,7 +32,7 @@ class SmartyDemoTest extends TestCase
         Product::create([
             'name' => 'Matchable Device',
             'description' => 'Matches term',
-            'price' => 150.00,
+            'price' => 150000.00,
             'stock' => 7,
             'image' => null,
             'is_active' => true,
@@ -41,7 +41,7 @@ class SmartyDemoTest extends TestCase
         Product::create([
             'name' => 'Other Item',
             'description' => 'No matching term',
-            'price' => 60.00,
+            'price' => 60000.00,
             'stock' => 9,
             'image' => null,
             'is_active' => true,

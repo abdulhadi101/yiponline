@@ -13,7 +13,7 @@
                     
                     <div>
                         <h1 class="text-3xl font-bold text-gray-900 mb-4">{{ product.name }}</h1>
-                        <p class="text-2xl font-bold text-indigo-600 mb-4">${{ product.price }}</p>
+                        <p class="text-2xl font-bold text-indigo-600 mb-4">₦{{ Number(product.price).toLocaleString() }}</p>
                         <p class="text-gray-600 mb-6">{{ product.description }}</p>
                         
                         <div class="mb-6">

@@ -26,7 +26,7 @@ class CheckoutOrderFlowTest extends TestCase
         $product = Product::create([
             'name' => 'Order Product',
             'description' => 'Order test',
-            'price' => 100.00,
+            'price' => 100000.00,
             'stock' => 10,
             'image' => null,
             'is_active' => true,
@@ -37,7 +37,7 @@ class CheckoutOrderFlowTest extends TestCase
                 $product->id => [
                     'id' => $product->id,
                     'name' => $product->name,
-                    'price' => 100.00,
+                    'price' => 100000.00,
                     'image' => null,
                     'quantity' => 2,
                 ],

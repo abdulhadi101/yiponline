@@ -24,7 +24,7 @@
                         </div>
                         <div class="flex justify-between">
                             <span class="text-gray-600">Total Amount:</span>
-                            <span class="font-medium text-indigo-600">${{ order.total }}</span>
+                            <span class="font-medium text-indigo-600">₦{{ Number(order.total).toLocaleString() }}</span>
                         </div>
                         <div class="flex justify-between">
                             <span class="text-gray-600">Status:</span>

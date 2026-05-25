@@ -25,7 +25,7 @@ class StatsOverview extends BaseWidget
                 ->description('Registered users')
                 ->descriptionIcon('heroicon-m-users')
                 ->color('warning'),
-            Stat::make('Revenue', '$' . number_format(Order::where('status', 'completed')->sum('total'), 2))
+            Stat::make('Revenue', '₦' . number_format(Order::where('status', 'completed')->sum('total'), 2))
                 ->description('From completed orders')
                 ->descriptionIcon('heroicon-m-currency-dollar')
                 ->color('success'),

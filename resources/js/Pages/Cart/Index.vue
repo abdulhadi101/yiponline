@@ -18,7 +18,7 @@
                         <tbody class="bg-white divide-y divide-gray-200">
                             <tr v-for="(item, productId) in cart" :key="productId">
                                 <td class="px-6 py-4 whitespace-nowrap">{{ item.name }}</td>
-                                <td class="px-6 py-4 whitespace-nowrap">${{ item.price.toFixed(2) }}</td>
+                                <td class="px-6 py-4 whitespace-nowrap">₦{{ Number(item.price).toLocaleString() }}</td>
                                 <td class="px-6 py-4 whitespace-nowrap">
                                     <input 
                                         type="number" 
@@ -28,7 +28,7 @@
                                         class="w-20 border border-gray-300 rounded-md px-2 py-1"
                                     />
                                 </td>
-                                <td class="px-6 py-4 whitespace-nowrap">${{ (item.price * item.quantity).toFixed(2) }}</td>
+                                <td class="px-6 py-4 whitespace-nowrap">₦{{ Number(item.price * item.quantity).toLocaleString() }}</td>
                                 <td class="px-6 py-4 whitespace-nowrap">
                                     <button 
                                         @click="removeItem(productId)"
@@ -45,7 +45,7 @@
                 <div class="bg-white rounded-lg shadow-md p-6 mb-6">
                     <div class="flex justify-between items-center mb-4">
                         <span class="text-xl font-semibold">Total:</span>
-                        <span class="text-2xl font-bold text-indigo-600">${{ total }}</span>
+                        <span class="text-2xl font-bold text-indigo-600">₦{{ Number(total).toLocaleString() }}</span>
                     </div>
                     
                     <div class="flex space-x-4">

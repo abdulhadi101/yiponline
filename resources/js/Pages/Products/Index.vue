@@ -31,7 +31,7 @@
                         <h2 class="text-lg font-semibold text-gray-800 mb-2">{{ product.name }}</h2>
                         <p class="text-gray-600 text-sm mb-3 line-clamp-2">{{ product.description }}</p>
                         <div class="flex justify-between items-center">
-                            <span class="text-xl font-bold text-indigo-600">${{ product.price }}</span>
+                            <span class="text-xl font-bold text-indigo-600">₦{{ Number(product.price).toLocaleString() }}</span>
                             <Link 
                                 :href="`/products/${product.id}`"
                                 class="text-indigo-600 hover:text-indigo-800 text-sm font-medium"
@@ -46,17 +46,22 @@
             <!-- Pagination -->
             <div v-if="products.last_page > 1" class="mt-8 flex justify-center">
                 <nav class="flex space-x-2">
-                    <Link 
-                        v-for="(link, index) in products.links" 
-                        :key="index"
-                        :href="link.url"
-                        :class="[
-                            'px-4 py-2 rounded-md',
-                            link.active ? 'bg-indigo-600 text-white' : 'bg-white text-gray-700 hover:bg-gray-100',
-                            !link.url ? 'opacity-50 cursor-not-allowed' : ''
-                        ]"
-                        v-html="link.label"
-                    />
+                    <template v-for="(link, index) in products.links" :key="index">
+                        <Link
+                            v-if="link.url"
+                            :href="link.url"
+                            :class="[
+                                'px-4 py-2 rounded-md',
+                                link.active ? 'bg-indigo-600 text-white' : 'bg-white text-gray-700 hover:bg-gray-100'
+                            ]"
+                            v-html="link.label"
+                        />
+                        <span
+                            v-else
+                            class="px-4 py-2 rounded-md bg-white text-gray-400 opacity-50 cursor-not-allowed"
+                            v-html="link.label"
+                        />
+                    </template>
                 </nav>
             </div>
         </div>

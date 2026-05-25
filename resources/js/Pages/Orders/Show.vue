@@ -36,14 +36,14 @@
                             <tr v-for="item in order.items" :key="item.id" class="border-t">
                                 <td class="py-3">{{ item.product_name }}</td>
                                 <td class="py-3">{{ item.quantity }}</td>
-                                <td class="py-3 text-right">${{ item.price }}</td>
-                                <td class="py-3 text-right font-medium">${{ (item.price * item.quantity).toFixed(2) }}</td>
+                                <td class="py-3 text-right">₦{{ Number(item.price).toLocaleString() }}</td>
+                                <td class="py-3 text-right font-medium">₦{{ Number(item.price * item.quantity).toLocaleString() }}</td>
                             </tr>
                         </tbody>
                         <tfoot>
                             <tr class="border-t font-bold">
                                 <td colspan="3" class="py-3 text-right">Total:</td>
-                                <td class="py-3 text-right">${{ order.total }}</td>
+                                <td class="py-3 text-right">₦{{ Number(order.total).toLocaleString() }}</td>
                             </tr>
                         </tfoot>
                     </table>

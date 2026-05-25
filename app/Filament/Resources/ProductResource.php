@@ -30,7 +30,7 @@ class ProductResource extends Resource
                 Forms\Components\TextInput::make('price')
                     ->required()
                     ->numeric()
-                    ->prefix('$'),
+                    ->prefix('₦'),
                 Forms\Components\TextInput::make('stock')
                     ->required()
                     ->numeric()
@@ -49,7 +49,7 @@ class ProductResource extends Resource
                 Tables\Columns\TextColumn::make('name')
                     ->searchable(),
                 Tables\Columns\TextColumn::make('price')
-                    ->money()
+                    ->money('NGN')
                     ->sortable(),
                 Tables\Columns\TextColumn::make('stock')
                     ->numeric()

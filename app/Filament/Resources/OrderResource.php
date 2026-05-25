@@ -74,7 +74,7 @@ class OrderResource extends Resource
                 Tables\Columns\TextColumn::make('total')
                     ->numeric()
                     ->sortable()
-                    ->money('USD'),
+                    ->money('NGN'),
                 Tables\Columns\BadgeColumn::make('status')
                     ->searchable()
                     ->colors([
